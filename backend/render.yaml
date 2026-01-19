@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: movie-recommendation-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: API_PROVIDER
+        value: groq
+      - key: PORT
+        value: 10000
+    healthCheckPath: /health
